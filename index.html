@@ -9041,7 +9041,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         .querySelectorAll(".reveal")
         .forEach((el) => observer.observe(el));
     </script>
-    <script>
+    <!-- <script>
       const menuBtn = document.getElementById("menuBtn");
       const closeBtn = document.getElementById("closeMenu");
       const menu = document.getElementById("mobileMenu");
@@ -9054,6 +9054,31 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       closeBtn.addEventListener("click", () => {
         menu.classList.remove("active");
         document.body.style.overflow = "";
+      });
+    </script> -->
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const closeBtn = document.getElementById("closeMenu");
+      const menu = document.getElementById("mobileMenu");
+
+      // open
+      menuBtn.addEventListener("click", () => {
+        menu.classList.add("active");
+        document.body.style.overflow = "hidden";
+      });
+
+      // close button
+      closeBtn.addEventListener("click", () => {
+        menu.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+
+      // ✅ CLOSE WHEN CLICKING LINKS
+      document.querySelectorAll(".menu-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.remove("active");
+          document.body.style.overflow = "";
+        });
       });
     </script>
   </body>
